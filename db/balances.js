@@ -1,3 +1,3 @@
-module.exports = function container (get) {
-  return get('db.createCollection')('balances')
-}
+module.exports = function container(get) {
+  return get('db.createCollection')('balances');
+};

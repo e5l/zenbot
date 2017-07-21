@@ -1,26 +1,27 @@
-var codemap = require('codemap')
+const map = require('codemap');
 
 module.exports = function () {
-  var rootMap = {
+  const rootMap = {
     _maps: [require('./_codemap')],
 
-    'get': function container (get, set) {
-      return get
+    'get': function container(get, set) {
+      return get;
     },
-    'set': function container (get, set) {
-      return set
+    'set': function container(get, set) {
+      return set;
     },
-    'use': function container (get, set) {
-      return function use () {
-        ;[].slice.call(arguments).forEach(function (arg) {
-          instance.parseMap(arg)
-        })
-        instance.validatePathCache()
-      }
+    'use': function container(get, set) {
+      return function use() {
+        [].slice.call(arguments).forEach(function (arg) {
+          instance.parseMap(arg);
+        });
+        instance.validatePathCache();
+      };
     }
-  }
-  var instance = codemap(rootMap)
-  return instance.export()
-}
+  };
 
-module.exports.version = require('./package.json').version
+  const instance = map(rootMap);
+  return instance.export();
+};
+
+module.exports.version = require('./package.json').version;
